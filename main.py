@@ -67,5 +67,4 @@ print(zoo.show_info())
 chosen_show = input('Введите название шоу, которое вы хотите посетить с заглавной буквы: ')
 print(zoo.choose_ticket(chosen_show)) 
 
-#Готово
-#JR
+

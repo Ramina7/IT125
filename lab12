@@ -1,0 +1,119 @@
+import sounddevice as sd
+import numpy as np
+import speech_recognition as sr
+from scipy.io.wavfile import write
+import tkinter as tk
+from tkinter import filedialog
+import threading
+
+
+class Recorder:
+    def __init__(self, sample_rate=44100):
+        self.sample_rate = sample_rate
+        self.audio = None
+        self.recording = False
+
+    def start(self):
+        self.recording = True
+        self.audio = []
+
+        print("🎙 Запись началась...")
+
+        with sd.InputStream(samplerate=self.sample_rate,
+                            channels=1,
+                            callback=self.callback):
+            while self.recording:
+                sd.sleep(100)
+
+    def callback(self, indata, frames, time, status):
+        if self.recording:
+            self.audio.append(indata.copy())
+
+    def stop(self):
+        self.recording = False
+        if self.audio:
+            self.audio = np.concatenate(self.audio, axis=0)
+        print("⏹ Запись остановлена")
+
+    def save(self, file):
+        if self.audio is not None:
+            write(file, self.sample_rate,
+                  (self.audio * 32767).astype(np.int16))
+            print("💾 Сохранено:", file)
+
+    def recognize(self):
+        if self.audio is None:
+            return "Нет записи"
+
+        temp = "temp.wav"
+        write(temp, self.sample_rate,
+              (self.audio * 32767).astype(np.int16))
+
+        rec = sr.Recognizer()
+
+        with sr.AudioFile(temp) as source:
+            audio = rec.record(source)
+
+        try:
+            text = rec.recognize_google(audio, language="ru-RU").lower()
+            print("Распознано:", text)
+
+            if "гав" in text:
+                return "Это собака 🐶"
+            elif "мяу" in text:
+                return "Это кот 🐱"
+            else:
+                return "Не удалось определить 😕"
+
+        except:
+            return "Ошибка распознавания"
+
+
+class App:
+    def __init__(self, window):
+        self.window = window
+        self.window.title("Мини-диктофон")
+        self.window.geometry("400x350")
+
+        self.rec = Recorder()
+
+        tk.Label(window, text="Диктофон + животные",
+                 font=("Arial", 14)).pack(pady=10)
+
+        tk.Button(window, text="Начать запись",
+                  command=self.start_record).pack(pady=5)
+
+        tk.Button(window, text="Остановить",
+                  command=self.stop_record).pack(pady=5)
+
+        tk.Button(window, text="Сохранить",
+                  command=self.save_file).pack(pady=5)
+
+        tk.Button(window, text="Определить животное",
+                  command=self.detect_animal).pack(pady=20)
+
+        self.result = tk.Label(window, text="", font=("Arial", 14))
+        self.result.pack(pady=10)
+
+    def start_record(self):
+        thread = threading.Thread(target=self.rec.start)
+        thread.start()
+
+    def stop_record(self):
+        self.rec.stop()
+
+    def save_file(self):
+        file = filedialog.asksaveasfilename(defaultextension=".wav",
+                                            filetypes=[("WAV files", "*.wav")])
+        if file:
+            self.rec.save(file)
+
+    def detect_animal(self):
+        result = self.rec.recognize()
+        self.result.config(text=result)
+
+
+if name == "__main__":
+    root = tk.Tk()
+    app = App(root)
+    root.mainloop()

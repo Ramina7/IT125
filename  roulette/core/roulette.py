@@ -7,8 +7,8 @@ class RussianRoulette2Players:
         random.shuffle(self.chambers)
         self.current_index = 0
         self.is_alive = True
-        self.score = {"Игрок1": 0, "Игрок2": 0}
-        self.players = ["Игрок1", "Игрок2"]
+        self.score = {"Карина": 0, "Алина": 0}
+        self.players = ["Карина", "Алина"]  
         self.current_player_index = 0
         self.time_limit = 5  
 

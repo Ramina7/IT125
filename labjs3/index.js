@@ -1,4 +1,4 @@
-// задание 1 
+задание 1 
 
 function getRange(start, end, step = 1) {
     let result = [];
@@ -29,14 +29,13 @@ console.log(myReverse("123456789"));
 
 // задание 3
 
-function myReverse(text) {
-    let result = "";
+function maskCard(card, symbol = "X") {
+    let first = card.slice(0, 6);
+    let last = card.slice(-4);
+    let middle = symbol.repeat(card.length - 10);
 
-    for (let i = text.length - 1; i >= 0; i--) {
-        result += text[i];
-    }
-
-    return result;
+    return first + middle + last;
 }
 
-console.log(myReverse("123456789"));
+console.log(maskCard("4815154823541789"));
+console.log(maskCard("4815154823541789", "*"));

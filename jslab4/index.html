@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter и Лото</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Counter -->
+    <div class="counter-card">
+
+        <h1>Counter</h1>
+
+        <div id="counter">0</div>
+
+        <button onclick="decrease()">−</button>
+        <button onclick="resetCounter()">Сбросить</button>
+        <button onclick="increase()">+</button>
+
+    </div>
+
+
+    <!-- Лото -->
+    <div class="loto-card">
+
+        <h1>Лото</h1>
+
+        <div id="numbers"></div>
+
+        <button onclick="generateNumbers()">Сгенерировать</button>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

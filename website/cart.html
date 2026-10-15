@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Корзина — LUMÉA</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <a class="logo" href="index.html">
+            LUMÉA <span>BEAUTY</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="skincare.html">Уход</a>
+            <a href="makeup.html">Макияж</a>
+            <a href="bodycare.html">Для тела</a>
+            <a href="sets.html">Наборы</a>
+            <a href="about.html">О нас</a>
+            <a href="contact.html">Контакты</a>
+
+            <a href="cart.html">
+                ♡ Корзина (<span id="cart-count">0</span>)
+            </a>
+        </nav>
+
+    </header>
+
+    <main class="section">
+
+        <p class="eyebrow">YOUR SELECTION</p>
+
+        <h1>Твоя корзина</h1>
+
+        <p>
+            Проверь выбранные товары перед оформлением.
+        </p>
+
+        <div id="cart-items"></div>
+
+        <h2>
+            Итого:
+            <span id="cart-total">0</span> сом
+        </h2>
+
+        <button class="button" id="checkout">
+            Оформить заказ
+        </button>
+
+        <button
+            class="button"
+            id="clear-cart"
+            type="button">
+            Очистить корзину
+        </button>
+
+        <p>
+            <a class="more" href="catalog.html">
+                ← Продолжить покупки
+            </a>
+        </p>
+
+    </main>
+
+  <footer>
+
+        <a class="logo" href="index.html">
+            LUMÉA <span>BEAUTY</span>
+        </a>
+
+        <p>Красота начинается с заботы о себе ♡</p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

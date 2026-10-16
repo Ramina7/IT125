@@ -249,6 +249,146 @@ form label { font-size: 14px; }
   cursor: pointer;
 }
 
+
+/* ===== DESIGN FOR DELIVERY PAGE ===== */
+
+.delivery-page {
+    max-width: 1000px;
+    margin: 50px auto 70px;
+    padding: 0 25px;
+}
+
+/* Заголовок страницы */
+
+.delivery-page h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.delivery-intro {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    text-align: center;
+    color: #81716d;
+}
+
+/* Информационные карточки */
+
+.delivery-card {
+    background: var(--white);
+    padding: 28px 30px;
+    margin-bottom: 22px;
+    border: 1px solid #f0e5df;
+    border-left: 4px solid var(--rose);
+    border-radius: 5px;
+    box-shadow: 0 4px 18px #40333308;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.delivery-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px #40333312;
+}
+
+.delivery-card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--brown);
+    margin: 0 0 14px;
+}
+
+.delivery-card p {
+    color: #81716d;
+    margin-bottom: 0;
+}
+
+.delivery-card ul {
+    padding-left: 22px;
+    color: #81716d;
+}
+
+.delivery-card li {
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+.delivery-card li:last-child {
+    margin-bottom: 0;
+}
+
+/* Блок с контактами */
+
+.delivery-contact {
+    background: var(--pink);
+    padding: 40px 25px;
+    margin-top: 35px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.delivery-contact h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.delivery-contact p {
+    color: #6f5b5b;
+    margin-bottom: 18px;
+}
+
+/* Кнопка связи */
+
+.delivery-contact .button {
+    display: inline-block;
+    background: var(--rose);
+    color: var(--white);
+    padding: 12px 24px;
+    text-decoration: none;
+    margin: 0;
+}
+
+.delivery-contact .button:hover {
+    background: #98646a;
+    transform: translateY(-2px);
+}
+
+/* Адаптация для телефонов */
+
+@media (max-width: 550px) {
+    .delivery-page {
+        margin: 30px auto 45px;
+        padding: 0 18px;
+    }
+
+    .delivery-intro {
+        margin-bottom: 28px;
+    }
+
+    .delivery-card {
+        padding: 22px 20px;
+    }
+
+    .delivery-card h2 {
+        font-size: 23px;
+    }
+
+    .delivery-contact {
+        padding: 30px 18px;
+    }
+
+    .delivery-contact h2 {
+        font-size: 26px;
+    }
+}
+
+
 footer {
   text-align: center;
   background: #f1e8e1;
@@ -259,17 +399,46 @@ footer {
 
 footer p { margin-top: 8px; color: #7c6e6a; }
 
-@media (max-width: 850px) {
-  header { justify-content: center; }
-  nav { justify-content: center; }
-  .hero, .split { grid-template-columns: 1fr; }
-  .hero { padding-top: 35px; }
-  .hero img { height: 350px; }
-  .cards, .products, .info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
 @media (max-width: 550px) {
-  .cards, .products, .info-grid { grid-template-columns: 1fr; }
-  .section { padding: 40px 5%; }
-  .category img, .product img, .info-card img { height: 300px; }
+
+  .cards,
+  .products,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 40px 5%;
+  }
+
+  .category img,
+  .product img,
+  .info-card img {
+    height: 300px;
+  }
+
+  .delivery-page {
+    margin: 30px auto 45px;
+    padding: 0 18px;
+  }
+
+  .delivery-intro {
+    margin-bottom: 28px;
+  }
+
+  .delivery-card {
+    padding: 22px 20px;
+  }
+
+  .delivery-card h2 {
+    font-size: 23px;
+  }
+
+  .delivery-contact {
+    padding: 30px 18px;
+  }
+
+  .delivery-contact h2 {
+    font-size: 26px;
+  }
 }

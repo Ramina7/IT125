@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Каталог — LUMÉA Beauty</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <a class="logo" href="index.html">
+            LUMÉA <span>BEAUTY</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="skincare.html">Уход</a>
+            <a href="makeup.html">Макияж</a>
+            <a href="bodycare.html">Для тела</a>
+            <a href="sets.html">Наборы</a>
+            <a href="about.html">О нас</a>
+            <a href="delivery.html">Доставка</a>
+            <a href="contact.html">Контакты</a>
+
+            <a href="cart.html">
+                ♡ Корзина (<span id="cart-count">0</span>)
+            </a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="page-intro">
+
+            <p class="eyebrow">OUR COLLECTION</p>
+
+            <h1>Каталог косметики</h1>
+
+            <p>Выбирай средства для своего ежедневного ритуала.</p>
+
+        </section>
+
+        <section class="section">
+
+            <div class="products" id="product-grid"></div>
+
+        </section>
+
+        <div id="detail-section" class="detail-modal hidden">
+
+            <div class="detail-box">
+
+                <button id="close-btn" class="close-btn">&times;</button>
+
+                <div id="detail-card"></div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <a class="logo" href="index.html">
+            LUMÉA <span>BEAUTY</span>
+        </a>
+
+        <p>Красота начинается с заботы о себе ♡</p>
+
+    </footer>
+
+    <script src="catalog.js"></script>
+
+</body>
+</html>

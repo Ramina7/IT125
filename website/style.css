@@ -614,3 +614,28 @@ footer p {
         height: 260px;
     }
 }
+
+.animation-message {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #b87e83;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    z-index: 2000;
+    animation: messageShow 0.4s ease;
+}
+
+
+@keyframes messageShow {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
